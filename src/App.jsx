@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import { Image, Layout, Spin } from 'antd';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useUnit } from 'effector-react';
 import logo from './assets/logo.png';
 import SiderMenu from './components/SiderMenu/SiderMenu.jsx';
@@ -15,7 +15,12 @@ function App({ signOut, user }) {
   const getStatisticsTableDataLoading = useUnit(
     getStatisticsTableDataFx.pending
   );
+  const navigate = useNavigate();
   const isLoading = getStatisticsTableDataLoading;
+
+  useEffect(() => {
+    navigate('/statistics');
+  }, []);
 
   return (
     <Spin spinning={isLoading} tip="Загрузка..." size="large">
