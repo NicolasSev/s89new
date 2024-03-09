@@ -19,5 +19,3 @@ const App = ({ signOut, user }) =>  {
 }
 
 export default withAuthenticator(App);
-
-//FIXME Test push
