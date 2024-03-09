@@ -11,7 +11,7 @@ const App = ({ signOut, user }) =>  {
   return (
     <div>
       <Heading level={1}>Hello {user.username}</Heading>
-      <Button onClick={signOut}>Sign out!</Button>
+      <Button onClick={signOut}>Sign out!!</Button>
       <h2>Amplify Todos</h2>
       ...
     </div>
