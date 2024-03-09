@@ -1,0 +1,16 @@
+.search_wrapper{
+    display: flex;
+    width: 1000px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.search_input{
+    width: 740px;
+}
+
+.search_button{
+    border-radius: 25px;
+    background: #393A3C;
+    color: white;
+}
