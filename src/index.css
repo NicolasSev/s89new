@@ -71,3 +71,7 @@ button {
 .ant-spin{
   max-height: unset !important;
 }
+
+.ant-modal-content{
+  background: #393A3C !important;
+}

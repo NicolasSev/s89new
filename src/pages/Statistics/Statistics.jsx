@@ -1,21 +1,26 @@
+import axios from 'axios';
+import { useEffect } from 'react';
+import { useUnit } from 'effector-react';
 import StatisticsSearch from '../../components/Statistics/StatisticsSearch/StatisticsSearch.jsx';
 import StatisticsTable from '../../components/Statistics/StatisticsTable/StatisticsTable.jsx';
-import axios from 'axios';
+import { getStatisticsTableDataFx } from '../../models/statisticsModel/index.js';
 
 export default function Statistics() {
-
-  fetch("https://hjfu6inrbe.execute-api.eu-west-1.amazonaws.com/Phase3/ScanVisitDatabase",
-    {
-      method: "POST", // or 'PUT'
-    }
-  ).then((response) => response.json()
-  ).then((response) => {
-    console.log('response: - ', response)
-  })
+  const getStatisticsTableData = useUnit(getStatisticsTableDataFx);
+  // fetch(
+  //   'https://hjfu6inrbe.execute-api.eu-west-1.amazonaws.com/Phase3/ScanVisitDatabase',
+  //   {
+  //     method: 'POST', // or 'PUT'
+  //   }
+  // )
+  //   .then((response) => response.json())
+  //   .then((response) => {
+  //     console.log('response: - ', response);
+  //   });
 
   const requestOptions = {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'application/json' },
     // body: JSON.stringify({ title: 'React POST Request Example' })
   };
   // fetch('https://hjfu6inrbe.execute-api.eu-west-1.amazonaws.com/Phase3/ScanVisitDatabase', requestOptions)
@@ -49,6 +54,10 @@ export default function Statistics() {
   //     console.log(data);
   //     debugger
   //   });
+
+  useEffect(() => {
+    getStatisticsTableData();
+  }, []);
 
   return (
     <div>

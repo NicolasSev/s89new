@@ -1,0 +1,26 @@
+.modal{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    text-align: center;
+    width: unset!important;
+}
+
+.modal_download{
+    margin-top: 10px;
+    color: white;
+    font-size: 20px;
+    display: block;
+}
+
+.modal_download:hover{
+    color: white;
+}
+
+.modal_id{
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 10px;
+}

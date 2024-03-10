@@ -14,7 +14,7 @@ export default function SearchBar(props) {
   const onSend = () => {
     const payload = {
       searchValue: inputValue || null,
-      date: dateValue?.format('YYYY-MM-DD') || null,
+      date: dateValue?.format('DD.MM.YYYY') || null,
     };
 
     action(payload);
@@ -28,6 +28,7 @@ export default function SearchBar(props) {
         size="large"
         value={inputValue}
         onChange={onInputChange}
+        allowClear
       />
       <DatePicker
         size="large"

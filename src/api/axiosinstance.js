@@ -1,9 +1,11 @@
 import axios from 'axios';
 import notification from 'antd/es/notification';
-// const apiRoot = url;
+
+const apiRoot =
+  'https://hjfu6inrbe.execute-api.eu-west-1.amazonaws.com/Phase3/';
 export const api = () => {
   const axiosInstance = axios.create({
-    // baseURL: apiRoot,
+    baseURL: apiRoot,
   });
 
   axiosInstance.interceptors.response.use(

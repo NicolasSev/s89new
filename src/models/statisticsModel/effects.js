@@ -1,4 +1,5 @@
 import { createEffect } from 'effector';
+import { api } from '../../api/axiosinstance.js';
 
 const fake_data = [
   {
@@ -46,9 +47,5 @@ const fake_data = [
 ];
 
 export const getStatisticsTableDataFx = createEffect().use(async (payload) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      return resolve(fake_data);
-    }, 1000);
-  });
+  return (await api().post('ScanVisitDatabase')).data.body;
 });

@@ -4,3 +4,5 @@ export const $statisticsTableData = createStore([]);
 $statisticsTableData.watch((state) =>
   console.log('$statisticsTableData', state)
 );
+
+export const $statisticsTableStartData = createStore([]);

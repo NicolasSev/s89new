@@ -1,6 +1,21 @@
-import { $statisticsTableData } from './stores.js';
+import { sample } from 'effector';
+import { $statisticsTableData, $statisticsTableStartData } from './stores.js';
 import { getStatisticsTableDataFx } from './effects.js';
+import {
+  filterStatisticsTableData,
+  formatStatisticsTableData,
+} from '../../utils/statistics-utils.js';
+import { filterTableDataEv } from './events.js';
 
-$statisticsTableData.on(getStatisticsTableDataFx.doneData, (_, payload) => {
-  return payload;
+sample({
+  clock: getStatisticsTableDataFx.doneData,
+  fn: formatStatisticsTableData,
+  target: [$statisticsTableData, $statisticsTableStartData],
+});
+
+sample({
+  source: $statisticsTableStartData,
+  clock: filterTableDataEv,
+  fn: filterStatisticsTableData,
+  target: $statisticsTableData,
 });

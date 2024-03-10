@@ -8,6 +8,7 @@ import { useUnit } from 'effector-react';
 import logo from './assets/logo.png';
 import SiderMenu from './components/SiderMenu/SiderMenu.jsx';
 import { getStatisticsTableDataFx } from './models/statisticsModel/index.js';
+import { sendCreatePartnerFx } from './models/createPartnerModel/index.js';
 
 const { Sider, Content } = Layout;
 
@@ -15,8 +16,9 @@ function App({ signOut, user }) {
   const getStatisticsTableDataLoading = useUnit(
     getStatisticsTableDataFx.pending
   );
+  const sendCreatePartnerLoading = useUnit(sendCreatePartnerFx.pending);
   const navigate = useNavigate();
-  const isLoading = getStatisticsTableDataLoading;
+  const isLoading = getStatisticsTableDataLoading || sendCreatePartnerLoading;
 
   useEffect(() => {
     navigate('/statistics');
