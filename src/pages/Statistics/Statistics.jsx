@@ -1,7 +1,55 @@
 import StatisticsSearch from '../../components/Statistics/StatisticsSearch/StatisticsSearch.jsx';
 import StatisticsTable from '../../components/Statistics/StatisticsTable/StatisticsTable.jsx';
+import axios from 'axios';
 
 export default function Statistics() {
+
+  fetch("https://hjfu6inrbe.execute-api.eu-west-1.amazonaws.com/Phase3/ScanVisitDatabase",
+    {
+      method: "POST", // or 'PUT'
+    }
+  ).then((response) => response.json()
+  ).then((response) => {
+    console.log('response: - ', response)
+  })
+
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' }
+    // body: JSON.stringify({ title: 'React POST Request Example' })
+  };
+  // fetch('https://hjfu6inrbe.execute-api.eu-west-1.amazonaws.com/Phase3/ScanVisitDatabase', requestOptions)
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     console.log('data: - ', data)
+  //     debugger
+  //   })
+
+  // fetch("https://hjfu6inrbe.execute-api.eu-west-1.amazonaws.com/Phase3/ScanVisitDatabase", requestOptions
+  // ).then((response) => {
+  //   if (!response.ok) {
+  //     debugger
+  //   }
+  //   return response}
+  // )
+
+  // const url = 'https://hjfu6inrbe.execute-api.eu-west-1.amazonaws.com/Phase3/ScanVisitDatabase'
+  // const data = {
+  //   a: 10,
+  //   b: 20,
+  // };
+  // axios
+  //   .post(url, data, {
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json;charset=UTF-8",
+  //     },
+  //   })
+  //   .then(({data}) => {
+  //     console.log(data);
+  //     debugger
+  //   });
+
   return (
     <div>
       <StatisticsSearch />

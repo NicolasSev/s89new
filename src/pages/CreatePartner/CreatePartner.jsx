@@ -13,6 +13,29 @@ export default function CreatePartner() {
   const onInputChange = (e) => {
     setInputValue(e.target.value);
   };
+  async function postJSON(data) {
+    try {
+      const response = await fetch("https://hjfu6inrbe.execute-api.eu-west-1.amazonaws.com/Phase3/RegisterPartner", {
+        method: "POST", // or 'PUT'
+        // body: JSON.stringify(data),
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      console.log("Success:", result);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+
+  // fetch("https://hjfu6inrbe.execute-api.eu-west-1.amazonaws.com/Phase3/RegisterPartner",
+  //   {
+  //   method: "POST", // or 'PUT'
+  // }
+  //
+  // {
+  //   "partner_name": "Boxing Club"
+  // }
 
   return (
     <Card className={style.create_card}>
@@ -26,7 +49,9 @@ export default function CreatePartner() {
         className={style.card_input}
         placeholder="Название партнера"
       />
-      <Button className={style.card_button}>Сгенерировать ID и QR</Button>
+      <Button
+        className={style.card_button}
+        onClick={async () => {await postJSON({"partner_name": inputValue});}}>Сгенерировать ID и QR</Button>
     </Card>
   );
 }
