@@ -24,6 +24,16 @@ const menu_items = [
   // 	label: 'Карта партнера',
   // },
   {
+    key: 'client-card',
+    icon: <LogoutOutlined rotate={180} />,
+    label: 'Карта клиента',
+  },
+  {
+    key: 'partner-card',
+    icon: <LogoutOutlined rotate={180} />,
+    label: 'Карта партнера',
+  },
+  {
     key: 'create-partner',
     icon: <LogoutOutlined rotate={180} />,
     label: 'Создать партнера',

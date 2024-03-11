@@ -1,0 +1,35 @@
+.create_card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 128px 50px;
+    background: #393A3C;
+    color: white;
+}
+
+.card_title{
+    font-size: 30px;
+}
+
+.card_input_title{
+    font-size: 24px;
+    margin-top: 18px;
+}
+
+.card_input{
+    margin-top: 8px;
+    background: #5C5252 !important;
+    border: 1px solid #212122 !important;
+    color: white
+}
+
+.card_button{
+    margin-top: 40px;
+    width: 100%;
+    background: #FFBC01;
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+}
