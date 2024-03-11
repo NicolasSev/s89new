@@ -1,8 +1,7 @@
 import axios from 'axios';
 import notification from 'antd/es/notification';
 
-const apiRoot =
-  'https://hjfu6inrbe.execute-api.eu-west-1.amazonaws.com/Phase3/';
+const apiRoot = 'https://hjfu6inrbe.execute-api.eu-west-1.amazonaws.com/';
 export const api = () => {
   const axiosInstance = axios.create({
     baseURL: apiRoot,

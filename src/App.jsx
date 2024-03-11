@@ -9,6 +9,7 @@ import logo from './assets/logo.png';
 import SiderMenu from './components/SiderMenu/SiderMenu.jsx';
 import { getStatisticsTableDataFx } from './models/statisticsModel/index.js';
 import { sendCreatePartnerFx } from './models/createPartnerModel/index.js';
+import { getClientCardTableDataFx } from './models/clientCardModel/index.js';
 
 const { Sider, Content } = Layout;
 
@@ -17,8 +18,12 @@ function App({ signOut, user }) {
     getStatisticsTableDataFx.pending
   );
   const sendCreatePartnerLoading = useUnit(sendCreatePartnerFx.pending);
+  const getClientCardTableData = useUnit(getClientCardTableDataFx.pending);
   const navigate = useNavigate();
-  const isLoading = getStatisticsTableDataLoading || sendCreatePartnerLoading;
+  const isLoading =
+    getStatisticsTableDataLoading ||
+    sendCreatePartnerLoading ||
+    getClientCardTableData;
 
   useEffect(() => {
     navigate('/statistics');

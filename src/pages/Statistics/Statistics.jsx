@@ -3,10 +3,14 @@ import { useEffect } from 'react';
 import { useUnit } from 'effector-react';
 import StatisticsSearch from '../../components/Statistics/StatisticsSearch/StatisticsSearch.jsx';
 import StatisticsTable from '../../components/Statistics/StatisticsTable/StatisticsTable.jsx';
-import { getStatisticsTableDataFx } from '../../models/statisticsModel/index.js';
+import {
+  $statisticsTableStartData,
+  getStatisticsTableDataFx,
+} from '../../models/statisticsModel/index.js';
 
 export default function Statistics() {
   const getStatisticsTableData = useUnit(getStatisticsTableDataFx);
+  const statisticsTableData = useUnit($statisticsTableStartData);
   // fetch(
   //   'https://hjfu6inrbe.execute-api.eu-west-1.amazonaws.com/Phase3/ScanVisitDatabase',
   //   {
@@ -56,7 +60,9 @@ export default function Statistics() {
   //   });
 
   useEffect(() => {
-    getStatisticsTableData();
+    if (statisticsTableData.length === 0) {
+      getStatisticsTableData();
+    }
   }, []);
 
   return (

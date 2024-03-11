@@ -47,5 +47,5 @@ const fake_data = [
 ];
 
 export const getStatisticsTableDataFx = createEffect().use(async (payload) => {
-  return (await api().post('ScanVisitDatabase')).data.body;
+  return (await api().post('Phase3/ScanVisitDatabase')).data.body;
 });

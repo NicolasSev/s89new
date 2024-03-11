@@ -1,0 +1,20 @@
+.client_table{
+    margin-top: 40px;
+}
+
+.client_modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.client_modal_title{
+    color: white;
+    font-size: 30px;
+}
+
+.client_modal_text{
+    color: white;
+    font-size: 20px;
+}

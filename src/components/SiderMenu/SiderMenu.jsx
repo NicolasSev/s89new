@@ -13,16 +13,6 @@ const menu_items = [
     icon: <FileTextOutlined />,
     label: 'Статистика',
   },
-  // {
-  // 	key: 'client-map',
-  // 	icon: <UserOutlined />,
-  // 	label: 'Карта клиента',
-  // },
-  // {
-  // 	key: 'partner-map',
-  // 	icon: <FileTextOutlined />,
-  // 	label: 'Карта партнера',
-  // },
   {
     key: 'client-card',
     icon: <LogoutOutlined rotate={180} />,
@@ -58,6 +48,7 @@ export default function SiderMenu({ signOut }) {
 
   return (
     <Menu
+      defaultSelectedKeys={['statistics']}
       mode="vertical"
       items={menu_items}
       className={style.sider_menu}
