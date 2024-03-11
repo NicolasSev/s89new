@@ -5,7 +5,7 @@ import '@aws-amplify/ui-react/styles.css';
 import { Image, Layout, Spin } from 'antd';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useUnit } from 'effector-react';
-import logo from './assets/logo.png';
+import logo from './assets/s89.svg';
 import SiderMenu from './components/SiderMenu/SiderMenu.jsx';
 import { getStatisticsTableDataFx } from './models/statisticsModel/index.js';
 import { sendCreatePartnerFx } from './models/createPartnerModel/index.js';
@@ -41,7 +41,7 @@ function App({ signOut, user }) {
       <Layout>
         <Sider className="sider">
           <div className="sider_header">
-            <Image src={logo} preview={false} />
+            <Image src={logo} preview={false} width={140} />
           </div>
           <div className="sider_menu">
             <SiderMenu signOut={signOut} />
