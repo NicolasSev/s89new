@@ -1,32 +1,15 @@
-import { Card, Input } from 'antd';
-import { Button } from '@aws-amplify/ui-react';
-import { UserOutlined } from '@ant-design/icons';
 import { useUnit } from 'effector-react';
-import { useState } from 'react';
-import style from './PartnerCard.module.css';
+import { useEffect } from 'react';
+import PartnerCardSearch from '../../components/PartnerCard/PartnerCardSearch/PartnerCardSearch.jsx';
+import PartnerCardTable from '../../components/PartnerCard/PartnerCardTable/PartnerCardTable.jsx';
 import {
-  $createdPartnerQR,
-  resetQREv,
-  sendCreatePartnerFx,
-} from '../../models/createPartnerModel/index.js';
-import QrModal from '../../components/QrModal/QrModal.jsx';
+  $partnerCardTableData,
+  getPartnerCardTableDataFx,
+} from '../../models/partnerCardModel/index.js';
 
 export default function PartnerCard() {
-  const [inputValue, setInputValue] = useState('');
-  const sendCreatePartner = useUnit(sendCreatePartnerFx);
-  const createdPartnerQR = useUnit($createdPartnerQR);
-  const resetQR = useUnit(resetQREv);
-
-  const onInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
-  fetch('https://rkxijcc8j2.execute-api.eu-west-1.amazonaws.com/Phase4/PartnersPortrait', {
-    method: 'POST',
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log('partners list data: - ', data)
-    })
+  const getPartnerCardTableData = useUnit(getPartnerCardTableDataFx);
+  const partnerCardTableData = useUnit($partnerCardTableData);
 
   // async function postJSON(data) {
   //   try {
@@ -55,26 +38,16 @@ export default function PartnerCard() {
   //   "partner_name": "Boxing Club"
   // }
 
-  const onCreatePartner = () => {
-    sendCreatePartner({ partner_name: inputValue });
-  };
+  useEffect(() => {
+    if (partnerCardTableData.length === 0) {
+      getPartnerCardTableData();
+    }
+  }, []);
 
   return (
-    <Card className={style.create_card}>
-      <div className={style.card_title}>Создание карточки партнера</div>
-      <div className={style.card_input_title}>Название партнера</div>
-      <Input
-        onChange={onInputChange}
-        value={inputValue}
-        size="large"
-        prefix={<UserOutlined />}
-        className={style.card_input}
-        placeholder="Название партнера"
-      />
-      <Button className={style.card_button} onClick={onCreatePartner}>
-        Сгенерировать ID и QR
-      </Button>
-      <QrModal qrlink={createdPartnerQR} closeAction={resetQR} />
-    </Card>
+    <div>
+      <PartnerCardSearch />
+      <PartnerCardTable />
+    </div>
   );
 }

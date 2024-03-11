@@ -1,0 +1,20 @@
+.partner_table{
+    margin-top: 40px;
+}
+
+.partner_modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.partner_modal_title{
+    color: white;
+    font-size: 30px;
+}
+
+.partner_modal_text{
+    color: white;
+    font-size: 20px;
+}
