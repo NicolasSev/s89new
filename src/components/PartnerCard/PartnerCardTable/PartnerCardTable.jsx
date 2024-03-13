@@ -16,10 +16,15 @@ const columns = [
     dataIndex: 'name',
     key: 'partner-table-name',
   },
+  // {
+  //   title: 'ID партнера',
+  //   dataIndex: 'id',
+  //   key: 'partner-table-id',
+  // },
   {
-    title: 'ID партнера',
-    dataIndex: 'id',
-    key: 'partner-table-id',
+    title: 'Дата создания',
+    dataIndex: 'create_date',
+    key: 'partner-table-create_date',
   },
   {
     title: 'Действия',
