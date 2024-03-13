@@ -4,7 +4,7 @@ import { useState } from 'react';
 import style from './SearchBar.module.css';
 
 export default function SearchBar(props) {
-  const { placeHolder, action } = props;
+  const { placeHolder, action, noDate } = props;
   const [inputValue, setInputValue] = useState('');
   const [dateValue, setDateValue] = useState(null);
   const onInputChange = (e) => {
@@ -30,13 +30,17 @@ export default function SearchBar(props) {
         onChange={onInputChange}
         allowClear
       />
-      <DatePicker
-        size="large"
-        placeholder="Дата"
-        value={dateValue}
-        onChange={setDateValue}
-        className={style.search_datepicker}
-      />
+      {!noDate ? (
+        <DatePicker
+          size="large"
+          placeholder="Дата"
+          value={dateValue}
+          onChange={setDateValue}
+          className={style.search_datepicker}
+        />
+      ) : (
+        ''
+      )}
       <Button className={style.search_button} onClick={onSend}>
         Показать
       </Button>
