@@ -4,10 +4,10 @@ export const formatClientCardTableData = (data) => {
       key: `${index}-${item.ClientID.S}`,
       name: `${item.ClientSurname.S} ${item.ClientName.S}`,
       phone: item.ClientPhoneNumber.S.replace('.0', ''),
-      card_id: item.FCID.S,
-      sub_name: item.FCName.S,
-      activation_date: item.ActivationDate.S,
-      expiration_date: item.ExpirationDate.S,
+      card_id: item.FCID?.S || '',
+      sub_name: item.FCName?.S || '',
+      activation_date: item.ActivationDate?.S || '',
+      expiration_date: item.ExpirationDate?.S || '',
     };
   });
 };
