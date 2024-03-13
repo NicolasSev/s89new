@@ -2,6 +2,7 @@ export function formatStatisticsTableData(data) {
   return data.map((item, index) => {
     return {
       id: item.PartnerID.S,
+      partner_name: item.PartnerName.S,
       name: item.ClientFullName.S,
       date: item.VisitDate.S,
       key: `${index}-${item.PartnerID.S}`,
@@ -21,7 +22,7 @@ export function filterStatisticsTableData(data, searchPayload) {
       }
       return (
         item.name.includes(searchPayload.searchValue) ||
-        item.id.includes(searchPayload.searchValue)
+        item.partner_name.includes(searchPayload.searchValue)
       );
     });
   }
@@ -31,7 +32,7 @@ export function filterStatisticsTableData(data, searchPayload) {
       return (
         item.date === searchPayload.date &&
         (item.name.includes(searchPayload.searchValue) ||
-          item.id.includes(searchPayload.searchValue))
+          item.partner_name.includes(searchPayload.searchValue))
       );
     });
   }

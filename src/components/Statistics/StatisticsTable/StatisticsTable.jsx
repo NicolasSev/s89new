@@ -4,10 +4,15 @@ import { $statisticsTableData } from '../../../models/statisticsModel/index.js';
 import style from './StatisticsTable.module.css';
 
 const columns = [
+  // {
+  //   title: 'ID',
+  //   dataIndex: 'id',
+  //   key: 'id',
+  // },
   {
-    title: 'ID',
-    dataIndex: 'id',
-    key: 'id',
+    title: 'Название партнера',
+    dataIndex: 'partner_name',
+    key: 'partner_name',
   },
   {
     title: 'ФИО клиента',
@@ -15,7 +20,7 @@ const columns = [
     key: 'name',
   },
   {
-    title: 'Дата',
+    title: 'Дата посещения',
     dataIndex: 'date',
     key: 'name',
   },

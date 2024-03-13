@@ -7,6 +7,9 @@ export default function StatisticsSearch() {
   const filterTableData = useUnit(filterTableDataEv);
 
   return (
-    <SearchBar placeHolder="ID Партнера/ФИО Клиента" action={filterTableData} />
+    <SearchBar
+      placeHolder="Название Партнера/ФИО Клиента"
+      action={filterTableData}
+    />
   );
 }
