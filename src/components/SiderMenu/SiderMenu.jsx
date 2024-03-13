@@ -3,6 +3,8 @@ import {
   FileTextOutlined,
   LogoutOutlined,
   UserOutlined,
+  UnorderedListOutlined,
+  UserAddOutlined,
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import style from './SiderMenu.module.css';
@@ -15,17 +17,17 @@ const menu_items = [
   },
   {
     key: 'client-card',
-    icon: <LogoutOutlined rotate={180} />,
+    icon: <UnorderedListOutlined />,
     label: 'Карта клиента',
   },
   {
     key: 'partner-card',
-    icon: <LogoutOutlined rotate={180} />,
+    icon: <UserOutlined />,
     label: 'Карта партнера',
   },
   {
     key: 'create-partner',
-    icon: <LogoutOutlined rotate={180} />,
+    icon: <UserAddOutlined />,
     label: 'Создать партнера',
   },
   {
