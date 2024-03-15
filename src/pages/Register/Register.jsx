@@ -164,7 +164,7 @@ export default function Register() {
               >
                 Зарегистрироваться
               </Button>
-              <Link to="/login">Авторизация...</Link>
+              <Link to="/login">Авторизоваться</Link>
             </Form.Item>
           </Form>
         ) : (

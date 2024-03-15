@@ -110,7 +110,7 @@ export default function Login() {
             >
               Войти
             </Button>
-            <Link to="/register">Регистрация...</Link>
+            <Link to="/register">Зарегистрироваться</Link>
           </Form.Item>
         </Form>
       </Card>

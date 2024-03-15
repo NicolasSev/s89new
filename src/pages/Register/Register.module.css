@@ -45,6 +45,7 @@
     line-height: 20px;
     height: 50px;
     border-radius: 20px;
+    margin-bottom: 10px;
 }
 
 .register_submit:hover{
