@@ -5,5 +5,7 @@ import { filterClientTableDataEv } from '../../../models/clientCardModel/index.j
 export default function ClientCardSearch() {
   const filterClientTableData = useUnit(filterClientTableDataEv);
 
-  return <SearchBar placeHolder="Поиск" action={filterClientTableData} />;
+  return (
+    <SearchBar placeHolder="Поиск" action={filterClientTableData} noDate />
+  );
 }
