@@ -4,6 +4,8 @@ import Statistics from '../pages/Statistics/Statistics.jsx';
 import CreatePartner from '../pages/CreatePartner/CreatePartner.jsx';
 import ClientCard from '../pages/ClientCard/ClientCard.jsx';
 import PartnerCard from '../pages/PartnerCard/PartnerCard.jsx';
+import Login from '../pages/Login/Login.jsx';
+import Register from '../pages/Register/Register.jsx';
 
 const routes = createBrowserRouter([
   {
@@ -15,6 +17,14 @@ const routes = createBrowserRouter([
       { path: '/client-card', element: <ClientCard /> },
       { path: '/partner-card', element: <PartnerCard /> },
     ],
+  },
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/register',
+    element: <Register />,
   },
 ]);
 

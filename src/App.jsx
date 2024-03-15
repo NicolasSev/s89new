@@ -5,6 +5,7 @@ import '@aws-amplify/ui-react/styles.css';
 import { Image, Layout, Spin } from 'antd';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useUnit } from 'effector-react';
+import { signOut, getCurrentUser } from 'aws-amplify/auth';
 import logo from './assets/s89.svg';
 import SiderMenu from './components/SiderMenu/SiderMenu.jsx';
 import { getStatisticsTableDataFx } from './models/statisticsModel/index.js';
@@ -14,7 +15,9 @@ import { getPartnerCardTableDataFx } from './models/partnerCardModel/index.js';
 
 const { Sider, Content } = Layout;
 
-function App({ signOut, user }) {
+function App() {
+  const [user, setUser] = useState({});
+
   const getStatisticsTableDataLoading = useUnit(
     getStatisticsTableDataFx.pending
   );
@@ -32,8 +35,39 @@ function App({ signOut, user }) {
     getClientCardTableDataLoading ||
     getPartnerCardTableDataLoading;
 
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      navigate('login');
+    } catch (e) {
+      console.log('signOut error', e);
+    }
+  };
+
   useEffect(() => {
-    navigate('/statistics');
+    if (!user) {
+      navigate('/login');
+    } else {
+      navigate('/statistics');
+    }
+  }, [user]);
+
+  useEffect(() => {
+    getCurrentUser()
+      .then((response) => {
+        if (response) {
+          setUser(response);
+        } else {
+          setUser(null);
+        }
+      })
+      .catch((e) => {
+        if (e.message === 'User needs to be authenticated to call this API.') {
+          navigate('/login');
+        } else {
+          console.error(e);
+        }
+      });
   }, []);
 
   return (
@@ -44,7 +78,7 @@ function App({ signOut, user }) {
             <Image src={logo} preview={false} width={140} />
           </div>
           <div className="sider_menu">
-            <SiderMenu signOut={signOut} />
+            <SiderMenu signOut={handleSignOut} />
           </div>
         </Sider>
         <Layout className="content_layout">
@@ -64,4 +98,4 @@ function App({ signOut, user }) {
   );
 }
 
-export default withAuthenticator(App);
+export default App;
