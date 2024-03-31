@@ -9,6 +9,14 @@ $createdPartnerQR.reset(resetQREv);
 sample({
   clock: sendCreatePartnerFx.doneData,
   filter: (clock) => clock.statusCode === 200,
+  fn: (clock) => {
+    notification.success({
+      message: 'Успех',
+      description: 'Партнер успешно создан',
+      placement: 'topRight',
+    });
+    return clock.body;
+  },
   target: $createdPartnerQR,
 });
 

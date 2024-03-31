@@ -16,7 +16,7 @@ export const sendCreatePartnerFx = createEffect().use(async (payload) => {
 
     const result = await response.json();
     console.log('Success:', result);
-    return result.body;
+    return result;
   } catch (error) {
     console.error('Error:', error);
   }
