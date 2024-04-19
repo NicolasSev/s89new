@@ -69,7 +69,7 @@ export default function ClientCardTable() {
         // }}
         pagination={{
           position: 'bottomRight',
-          pageSize: 10,
+          pageSize: 15,
           showSizeChanger: false,
         }}
       />

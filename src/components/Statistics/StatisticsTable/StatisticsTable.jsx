@@ -39,7 +39,7 @@ export default function StatisticsTable() {
       // }}
       pagination={{
         position: 'bottomRight',
-        pageSize: 10,
+        pageSize: 15,
         showSizeChanger: false,
       }}
     />
