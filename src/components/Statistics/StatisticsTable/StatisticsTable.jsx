@@ -34,10 +34,14 @@ export default function StatisticsTable() {
       className={style.statistics_table}
       columns={columns}
       dataSource={statisticsTableData}
-      scroll={{
-        y: 500,
+      // scroll={{
+      //   y: 750,
+      // }}
+      pagination={{
+        position: 'bottomRight',
+        pageSize: 10,
+        showSizeChanger: false,
       }}
-      pagination={false}
     />
   );
 }

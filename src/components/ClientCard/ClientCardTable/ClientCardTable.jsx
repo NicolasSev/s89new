@@ -64,10 +64,14 @@ export default function ClientCardTable() {
         className={style.client_table}
         columns={columns}
         dataSource={clientCardTableData}
-        scroll={{
-          y: 500,
+        // scroll={{
+        //   y: 750,
+        // }}
+        pagination={{
+          position: 'bottomRight',
+          pageSize: 10,
+          showSizeChanger: false,
         }}
-        pagination={false}
       />
       <Modal
         open={Object.keys(chosenClient).length !== 0}

@@ -49,9 +49,13 @@ export default function PartnerCardTable() {
       <Table
         className={style.partner_table}
         columns={columns}
-        scroll={{ y: 500 }}
+        // scroll={{ y: 750 }}
         dataSource={partnerCardTableData}
-        pagination={false}
+        pagination={{
+          position: 'bottomRight',
+          pageSize: 10,
+          showSizeChanger: false,
+        }}
       />
       <QrModal
         qrlink={chosenPartner.qrcodeId}
