@@ -15,24 +15,24 @@ export function filterStatisticsTableData(data, searchPayload) {
     return data;
   }
 
+  if (searchPayload.date && searchPayload.searchValue) {
+    return data.filter((item) => {
+      return (
+        item.date === searchPayload.date &&
+        (item.name.toLowerCase().includes(searchPayload.searchValue) ||
+          item.partner_name.toLowerCase().includes(searchPayload.searchValue))
+      );
+    });
+  }
+
   if (searchPayload.date || searchPayload.searchValue) {
     return data.filter((item) => {
       if (searchPayload.date) {
         return item.date === searchPayload.date;
       }
       return (
-        item.name.includes(searchPayload.searchValue) ||
-        item.partner_name.includes(searchPayload.searchValue)
-      );
-    });
-  }
-
-  if (searchPayload.date && searchPayload.searchValue) {
-    return data.filter((item) => {
-      return (
-        item.date === searchPayload.date &&
-        (item.name.includes(searchPayload.searchValue) ||
-          item.partner_name.includes(searchPayload.searchValue))
+        item.name.toLowerCase().includes(searchPayload.searchValue) ||
+        item.partner_name.toLowerCase().includes(searchPayload.searchValue)
       );
     });
   }

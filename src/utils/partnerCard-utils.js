@@ -12,21 +12,21 @@ export const formatPartnerCardTableData = (data) => {
 export const filterPartnerCardTableData = (data, searchPayload) => {
   if (!searchPayload.date && !searchPayload.searchValue) return data;
 
+  if (searchPayload.date && searchPayload.searchValue) {
+    return data.filter((item) => {
+      return (
+        item.create_date === searchPayload.date &&
+        item.name.toLowerCase().includes(searchPayload.searchValue)
+      );
+    });
+  }
+
   if (searchPayload.date || searchPayload.searchValue) {
     return data.filter((item) => {
       if (searchPayload.date) {
         return item.create_date === searchPayload.date;
       }
-      return item.name.includes(searchPayload.searchValue);
-    });
-  }
-
-  if (searchPayload.date && searchPayload.searchValue) {
-    return data.filter((item) => {
-      return (
-        item.create_date === searchPayload.date &&
-        item.name.includes(searchPayload.searchValue)
-      );
+      return item.name.toLowerCase().includes(searchPayload.searchValue);
     });
   }
 };

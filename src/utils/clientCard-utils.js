@@ -15,21 +15,21 @@ export const formatClientCardTableData = (data) => {
 export const filterClientCardTableData = (data, searchPayload) => {
   if (!searchPayload.date && !searchPayload.searchValue) return data;
 
+  if (searchPayload.date && searchPayload.searchValue) {
+    return data.filter((item) => {
+      return (
+        item.activation_date === searchPayload.date &&
+        item.name.toLowerCase().includes(searchPayload.searchValue)
+      );
+    });
+  }
+
   if (searchPayload.date || searchPayload.searchValue) {
     return data.filter((item) => {
       if (searchPayload.date) {
         return item.activation_date === searchPayload.date;
       }
-      return item.name.includes(searchPayload.searchValue);
-    });
-  }
-
-  if (searchPayload.date && searchPayload.searchValue) {
-    return data.filter((item) => {
-      return (
-        item.activation_date === searchPayload.date &&
-        item.name.includes(searchPayload.searchValue)
-      );
+      return item.name.toLowerCase().includes(searchPayload.searchValue);
     });
   }
 };
