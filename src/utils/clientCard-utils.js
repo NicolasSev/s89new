@@ -19,7 +19,9 @@ export const filterClientCardTableData = (data, searchPayload) => {
     return data.filter((item) => {
       return (
         item.activation_date === searchPayload.date &&
-        item.name.toLowerCase().includes(searchPayload.searchValue)
+        item.name
+          .toLowerCase()
+          .includes(searchPayload.searchValue.toLowerCase())
       );
     });
   }
@@ -29,7 +31,9 @@ export const filterClientCardTableData = (data, searchPayload) => {
       if (searchPayload.date) {
         return item.activation_date === searchPayload.date;
       }
-      return item.name.toLowerCase().includes(searchPayload.searchValue);
+      return item.name
+        .toLowerCase()
+        .includes(searchPayload.searchValue.toLowerCase());
     });
   }
 };

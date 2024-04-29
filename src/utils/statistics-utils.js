@@ -19,8 +19,12 @@ export function filterStatisticsTableData(data, searchPayload) {
     return data.filter((item) => {
       return (
         item.date === searchPayload.date &&
-        (item.name.toLowerCase().includes(searchPayload.searchValue) ||
-          item.partner_name.toLowerCase().includes(searchPayload.searchValue))
+        (item.name
+          .toLowerCase()
+          .includes(searchPayload.searchValue.toLowerCase()) ||
+          item.partner_name
+            .toLowerCase()
+            .includes(searchPayload.searchValue.toLowerCase()))
       );
     });
   }
@@ -31,8 +35,12 @@ export function filterStatisticsTableData(data, searchPayload) {
         return item.date === searchPayload.date;
       }
       return (
-        item.name.toLowerCase().includes(searchPayload.searchValue) ||
-        item.partner_name.toLowerCase().includes(searchPayload.searchValue)
+        item.name
+          .toLowerCase()
+          .includes(searchPayload.searchValue.toLowerCase()) ||
+        item.partner_name
+          .toLowerCase()
+          .includes(searchPayload.searchValue.toLowerCase())
       );
     });
   }

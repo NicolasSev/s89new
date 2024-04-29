@@ -16,7 +16,9 @@ export const filterPartnerCardTableData = (data, searchPayload) => {
     return data.filter((item) => {
       return (
         item.create_date === searchPayload.date &&
-        item.name.toLowerCase().includes(searchPayload.searchValue)
+        item.name
+          .toLowerCase()
+          .includes(searchPayload.searchValue.toLowerCase())
       );
     });
   }
@@ -26,7 +28,9 @@ export const filterPartnerCardTableData = (data, searchPayload) => {
       if (searchPayload.date) {
         return item.create_date === searchPayload.date;
       }
-      return item.name.toLowerCase().includes(searchPayload.searchValue);
+      return item.name
+        .toLowerCase()
+        .includes(searchPayload.searchValue.toLowerCase());
     });
   }
 };
