@@ -5,6 +5,7 @@ import style from './ClientCardTable.module.css';
 import {
   $chosenClient,
   $clientCardTableData,
+  getCleintByNameFx,
   resetChosenClientEv,
   setChosenClientEv,
 } from '../../../models/clientCardModel/index.js';
@@ -57,6 +58,7 @@ export default function ClientCardTable() {
   const clientCardTableData = useUnit($clientCardTableData);
   const resetChosenClient = useUnit(resetChosenClientEv);
   const chosenClient = useUnit($chosenClient);
+  const loading = useUnit(getCleintByNameFx.pending);
 
   return (
     <>
@@ -72,6 +74,7 @@ export default function ClientCardTable() {
           pageSize: 15,
           showSizeChanger: false,
         }}
+        loading={loading}
       />
       <Modal
         open={Object.keys(chosenClient).length !== 0}

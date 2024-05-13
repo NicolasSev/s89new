@@ -4,7 +4,7 @@ import {
   $clientCardTableData,
   $clientCardTableStartData,
 } from './stores.js';
-import { getClientCardTableDataFx } from './effects.js';
+import { getCleintByNameFx, getClientCardTableDataFx } from './effects.js';
 import {
   formatClientCardTableData,
   filterClientCardTableData,
@@ -25,9 +25,34 @@ sample({
   target: [$clientCardTableData, $clientCardTableStartData],
 });
 
+// sample({
+//   source: $clientCardTableStartData,
+//   clock: filterClientTableDataEv,
+//   fn: filterClientCardTableData,
+//   target: $clientCardTableData,
+// });
+
+sample({
+  clock: filterClientTableDataEv,
+  filter: (clock) => clock.searchValue,
+  fn: (clock) => {
+    return {
+      client_name: clock.searchValue,
+    };
+  },
+  target: getCleintByNameFx,
+});
+
+sample({
+  clock: getCleintByNameFx.doneData,
+  fn: formatClientCardTableData,
+  target: $clientCardTableData,
+});
+
 sample({
   source: $clientCardTableStartData,
   clock: filterClientTableDataEv,
-  fn: filterClientCardTableData,
+  filter: (_, clock) => !clock.searchValue,
+  fn: (source) => source,
   target: $clientCardTableData,
 });

@@ -1,13 +1,13 @@
 export const formatClientCardTableData = (data) => {
   return data.map((item, index) => {
     return {
-      key: `${index}-${item.ClientID.S}`,
-      name: `${item.ClientSurname.S} ${item.ClientName.S}`,
-      phone: item.ClientPhoneNumber.S.replace('.0', ''),
-      card_id: item.FCID?.S || '',
-      sub_name: item.FCName?.S || '',
-      activation_date: item.ActivationDate?.S || '',
-      expiration_date: item.ExpirationDate?.S || '',
+      key: `${index}-${item.ClientID}`,
+      name: `${item.ClientSurname} ${item.ClientName}`,
+      phone: item.ClientPhoneNumber.replace('.0', ''),
+      card_id: item.FCID || '',
+      sub_name: item.FCName || '',
+      activation_date: item.ActivationDate || '',
+      expiration_date: item.ExpirationDate || '',
     };
   });
 };

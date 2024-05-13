@@ -1,11 +1,11 @@
 export const formatPartnerCardTableData = (data) => {
   return data.map((item, index) => {
     return {
-      key: `${item.PartnerID.S}-${index}`,
-      name: item.PartnerName.S,
-      id: item.PartnerID.S,
-      qrcodeId: item.QRCodeID.S,
-      create_date: item.CreateDate.S,
+      key: `${item.PartnerID}-${index}`,
+      name: item.PartnerName,
+      id: item.PartnerID,
+      qrcodeId: item.QRCodeID,
+      create_date: item.CreateDate,
     };
   });
 };

@@ -3,7 +3,7 @@ import { createEffect } from 'effector';
 export const getPartnerCardTableDataFx = createEffect().use(async () => {
   try {
     const response = await fetch(
-      'https://rkxijcc8j2.execute-api.eu-west-1.amazonaws.com/Phase4/PartnersPortrait',
+      'https://i0jm9vt38a.execute-api.eu-west-1.amazonaws.com/Phase4/PartnersPortrait',
       {
         method: 'POST', // or 'PUT'
       }
