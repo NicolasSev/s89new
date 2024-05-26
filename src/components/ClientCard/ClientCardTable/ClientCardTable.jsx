@@ -22,6 +22,47 @@ const columns = [
     key: 'client-table-phone',
   },
   {
+    title: 'Статус',
+    dataIndex: 'client_status',
+    key: 'client-table-status',
+    filters: [
+      {
+        text: 'Член клуба',
+        value: 'Член клуба',
+      },
+      {
+        text: 'Бывший член клуба',
+        value: 'Бывший член клуба',
+      },
+      {
+        text: 'Клиент клуба',
+        value: 'Клиент клуба',
+      },
+      {
+        text: 'Бывший клиент клуба',
+        value: 'Бывший клиент клуба',
+      },
+      {
+        text: 'Отказ',
+        value: 'Отказ',
+      },
+      {
+        text: 'Потенциальный член клуба',
+        value: 'Потенциальный член клуба',
+      },
+      {
+        text: 'Потенциальный клиент',
+        value: 'Потенциальный клиент',
+      },
+      {
+        text: 'Пусто',
+        value: 'Пусто',
+      },
+    ],
+    onFilter: (value, record) => record.client_status.indexOf(value) === 0,
+    sorter: (a, b) => a.client_status.localeCompare(b.client_status),
+  },
+  {
     title: 'Номер фитнес карты',
     dataIndex: 'card_id',
     key: 'client-table-card_id',

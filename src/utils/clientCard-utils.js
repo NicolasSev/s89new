@@ -8,6 +8,7 @@ export const formatClientCardTableData = (data) => {
       sub_name: item.FCName || '',
       activation_date: item.ActivationDate || '',
       expiration_date: item.ExpirationDate || '',
+      client_status: item.ClientStatus || 'Пусто',
     };
   });
 };
