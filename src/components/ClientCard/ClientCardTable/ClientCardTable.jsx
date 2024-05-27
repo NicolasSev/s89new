@@ -15,11 +15,14 @@ const columns = [
     title: 'ФИО',
     dataIndex: 'name',
     key: 'client-talbe-name',
+    sorter: (a, b) => a.name.localeCompare(b.name),
+    width: 192,
   },
   {
     title: 'Номер телефона',
     dataIndex: 'phone',
     key: 'client-table-phone',
+    width: 192,
   },
   {
     title: 'Статус',
@@ -61,26 +64,31 @@ const columns = [
     ],
     onFilter: (value, record) => record.client_status.indexOf(value) === 0,
     sorter: (a, b) => a.client_status.localeCompare(b.client_status),
+    width: 192,
   },
   {
     title: 'Номер фитнес карты',
     dataIndex: 'card_id',
     key: 'client-table-card_id',
+    width: 192,
   },
   {
     title: 'Название абонемента',
     dataIndex: 'sub_name',
     key: 'client-table-sub_name',
+    width: 192,
   },
   {
     title: 'Дата активации абонемента',
     dataIndex: 'activation_date',
     key: 'client-table-activation_date',
+    width: 192,
   },
   {
     title: 'Дата окончания абонемента',
     dataIndex: 'expiration_date',
     key: 'client-table-expiration_date',
+    width: 192,
   },
   {
     title: 'Действия',
@@ -93,6 +101,7 @@ const columns = [
         />
       );
     },
+    width: 192,
   },
 ];
 export default function ClientCardTable() {

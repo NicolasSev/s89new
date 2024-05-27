@@ -5,7 +5,7 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 314px !important;
+  width: 275px !important;
   max-width: unset !important;
   background: #393A3C !important;
 }
@@ -21,7 +21,7 @@
 }
 
 .content_layout{
-  margin-left: 314px;
+  margin-left: 275px;
 }
 
 .content{
