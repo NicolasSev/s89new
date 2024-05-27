@@ -82,12 +82,14 @@ const columns = [
     title: 'Дата активации абонемента',
     dataIndex: 'activation_date',
     key: 'client-table-activation_date',
+    sorter: (a, b) => a.activation_date.localeCompare(b.activation_date),
     width: 192,
   },
   {
     title: 'Дата окончания абонемента',
     dataIndex: 'expiration_date',
     key: 'client-table-expiration_date',
+    sorter: (a, b) => a.expiration_date.localeCompare(b.expiration_date),
     width: 192,
   },
   {
