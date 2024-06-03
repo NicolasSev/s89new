@@ -16,13 +16,39 @@ const columns = [
     dataIndex: 'name',
     key: 'client-talbe-name',
     sorter: (a, b) => a.name.localeCompare(b.name),
-    width: 192,
+    render: (text, record) => {
+      return (
+        <div
+          style={{
+            wordWrap: 'break-word',
+            wordBreak: 'break-word',
+            minWidth: '150px',
+          }}
+        >
+          {text}
+        </div>
+      );
+    },
+    width: 150,
   },
   {
     title: 'Номер телефона',
     dataIndex: 'phone',
     key: 'client-table-phone',
-    width: 220,
+    render: (text, record) => {
+      return (
+        <div
+          style={{
+            wordWrap: 'break-word',
+            wordBreak: 'break-word',
+            minWidth: '90px',
+          }}
+        >
+          {text}
+        </div>
+      );
+    },
+    width: 90,
   },
   {
     title: 'Статус',
@@ -64,33 +90,59 @@ const columns = [
     ],
     onFilter: (value, record) => record.client_status.indexOf(value) === 0,
     sorter: (a, b) => a.client_status.localeCompare(b.client_status),
-    width: 192,
+    render: (text, record) => {
+      return (
+        <div
+          style={{
+            wordWrap: 'break-word',
+            wordBreak: 'break-word',
+            minWidth: '110px',
+          }}
+        >
+          {text}
+        </div>
+      );
+    },
+    width: 110,
   },
   {
     title: 'Номер фитнес карты',
     dataIndex: 'card_id',
     key: 'client-table-card_id',
-    width: 192,
+    // width: 192,
   },
   {
     title: 'Название абонемента',
     dataIndex: 'sub_name',
     key: 'client-table-sub_name',
-    width: 220,
+    render: (text, record) => {
+      return (
+        <div
+          style={{
+            wordWrap: 'break-word',
+            wordBreak: 'break-word',
+            minWidth: '150px',
+          }}
+        >
+          {text}
+        </div>
+      );
+    },
+    width: 150,
   },
   {
     title: 'Дата активации абонемента',
     dataIndex: 'activation_date',
     key: 'client-table-activation_date',
     sorter: (a, b) => a.activation_date.localeCompare(b.activation_date),
-    width: 192,
+    // width: 192,
   },
   {
     title: 'Дата окончания абонемента',
     dataIndex: 'expiration_date',
     key: 'client-table-expiration_date',
     sorter: (a, b) => a.expiration_date.localeCompare(b.expiration_date),
-    width: 192,
+    // width: 192,
   },
   {
     title: 'Действия',
@@ -103,7 +155,7 @@ const columns = [
         />
       );
     },
-    width: 64,
+    // width: 64,
   },
 ];
 export default function ClientCardTable() {
