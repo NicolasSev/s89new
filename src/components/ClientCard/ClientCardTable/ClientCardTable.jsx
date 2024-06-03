@@ -22,7 +22,7 @@ const columns = [
     title: 'Номер телефона',
     dataIndex: 'phone',
     key: 'client-table-phone',
-    width: 192,
+    width: 220,
   },
   {
     title: 'Статус',
@@ -76,7 +76,7 @@ const columns = [
     title: 'Название абонемента',
     dataIndex: 'sub_name',
     key: 'client-table-sub_name',
-    width: 192,
+    width: 220,
   },
   {
     title: 'Дата активации абонемента',
@@ -103,7 +103,7 @@ const columns = [
         />
       );
     },
-    width: 192,
+    width: 64,
   },
 ];
 export default function ClientCardTable() {
