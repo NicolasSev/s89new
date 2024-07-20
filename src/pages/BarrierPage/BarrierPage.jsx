@@ -1,8 +1,13 @@
-import { Button } from 'antd';
+import { Button, message } from 'antd';
+import { useState } from 'react';
 import style from './BarrierPage.module.css';
 
 export default function BarrierPage() {
+  const [loading, setLoading] = useState(false);
+  const [messageApi, contextHolder] = message.useMessage();
+
   const openBarrier = async () => {
+    setLoading(true);
     console.log('openBarrier');
     try {
       const response = await fetch(
@@ -13,8 +18,18 @@ export default function BarrierPage() {
       );
       const result = await response.json();
       console.log('Gate call success', result);
+      messageApi.open({
+        type: 'success',
+        content: 'Шлагбаум открыт',
+      });
+      setLoading(false);
     } catch (e) {
       console.error(e);
+      setLoading(false);
+      messageApi.open({
+        type: 'error',
+        content: 'Что-то пошло не так...',
+      });
     }
   };
 
@@ -24,11 +39,13 @@ export default function BarrierPage() {
 
   return (
     <div className={style.barrier_wrapper}>
+      {contextHolder}
       <Button
         type="primary"
         shape="circle"
         onClick={openBarrier}
         className={[style.barrier_button, style.open].join(' ')}
+        loading={loading}
       >
         Открыть
       </Button>
