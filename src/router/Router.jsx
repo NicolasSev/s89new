@@ -6,6 +6,7 @@ import ClientCard from '../pages/ClientCard/ClientCard.jsx';
 import PartnerCard from '../pages/PartnerCard/PartnerCard.jsx';
 import Login from '../pages/Login/Login.jsx';
 import Register from '../pages/Register/Register.jsx';
+import BarrierPage from '../pages/BarrierPage/BarrierPage.jsx';
 
 const routes = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const routes = createBrowserRouter([
   {
     path: '/register',
     element: <Register />,
+  },
+  {
+    path: '/barrier',
+    element: <BarrierPage />,
   },
 ]);
 

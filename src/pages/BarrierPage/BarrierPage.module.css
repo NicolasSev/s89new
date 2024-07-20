@@ -1,0 +1,23 @@
+.barrier_wrapper{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.barrier_button{
+    width: 400px;
+    height: 400px;
+    font-size: 48px;
+    box-shadow: 0 10px 20px grey;
+}
+
+.open{
+    background: #00d900 !important;
+}
+
+.close{
+    background: red !important;
+}
