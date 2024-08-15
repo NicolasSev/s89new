@@ -13,16 +13,19 @@ const columns = [
     title: 'Название партнера',
     dataIndex: 'partner_name',
     key: 'partner_name',
+    sorter: (a, b) => a.name.localeCompare(b.name),
   },
   {
     title: 'ФИО клиента',
     dataIndex: 'name',
     key: 'name',
+    sorter: (a, b) => a.name.localeCompare(b.name),
   },
   {
     title: 'Дата посещения',
     dataIndex: 'date',
     key: 'name',
+    sorter: (a, b) => a.name.localeCompare(b.name),
   },
 ];
 
